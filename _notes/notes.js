@@ -50,7 +50,7 @@ function canvasApp() {
 
 // modernizr również korzysta z dummy canvas
 
-// w canvas działamy w immediate mode, nie mamy żadnych obiektów, co klatkę odświeżamy obraz; jeśli cokolwiek się zmieni, to wszystko musi być narysowane ponownie; ~global properties - ułatwiają update obrazu
+// w canvas działamy w immediate mode, nie mamy żadnych obiektów, co klatkę odświeżamy obraz (obszar obrazu zapełniany bitmapą); jeśli cokolwiek się zmieni, to wszystko musi być narysowane ponownie; ~global properties - ułatwiają update obrazu
 // retained mode korzysta z obiektów przechowywanych w drawing surface, manipulacja za pomocą listy wyświetlania, obiekty mają niezależne stany (np. Flash i Silverlight)
 
 // kontekst
@@ -67,3 +67,27 @@ function canvasApp() {
 // żeby otrzymać dane w określonym formacie trzeba podać jako parametr typ MIME, standardowo jest to image/png
 
 // jest jeszcze trzecia metoda w trakcie implementacji: toBlob([callback]), zwraca referencję do pliku zamiast stringu zakodowanego jako base64, na razie żadna przeglądarka nie implementuje tej metody, na stronie mozilli jest wsparcie dla Firefox i IE od 10
+
+// funkcja window.requestAnimFrame(), zmienia się i nie jest jeszcze zaimplementowana we wszystkich przeglądarkach, używa delta timera, żeby poinformować program kiedy przeglądarka jest gotowa do wyrenderowania nowej klatki animacji
+window.requestAnimFrame = (function() {
+    return
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+})();
+
+(function animloop() {
+    requestAnimFrame(animloop);
+    render();
+})();
+// by Paul Irish
+
+// dostępność (accessibility) dla canvas, fallback DOM concept - sub dom, definiujemy element DOM dla każdego elementu z canvas zamiast jednego tekstu w tagu canvas, również tytuł musi być dobrze dostępny
+// do imitacji screen readera możemy użyć wtyczki Fangs w Firefoksie, potem right-click i View Fangs
+// jest też Chrome Vox dla Chrome
+// czytniki chcą znać dokładne położenie elementu sub dom na canvas, W3C Canvas Hit Testing Proposal

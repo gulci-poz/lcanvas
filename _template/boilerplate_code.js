@@ -27,9 +27,9 @@ function canvasApp() {
 
     Debugger.log("Drawing Canvas");
 
+    drawScreen();
+
     function drawScreen() {
         // drawing canvas here
     }
-
-    drawScreen();
 }

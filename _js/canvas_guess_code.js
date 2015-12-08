@@ -22,11 +22,11 @@ function canvasApp() {
         return;
     }
 
-    var formElement = document.getElementById("createImageData");
-    formElement.addEventListener("click", createImageDataPressed, false);
-
     var theCanvas = document.getElementById("canvasOne");
     var context = theCanvas.getContext("2d");
+
+    var formElement = document.getElementById("createImageData");
+    formElement.addEventListener("click", createImageDataPressed, false);
 
     // guesses - liczba zgadnięć
     // message - instrukcje jak grać
@@ -148,11 +148,11 @@ function canvasApp() {
         window.open(
             theCanvas.toDataURL(),
             "canvasImage",
-            "left=0, top=0, width="
-                + theCanvas.width
-                + ",height="
-                + theCanvas.height
-                + ",toolbar=0,resizable=0"
+            "left=0, top=0, width=" +
+                theCanvas.width
+                ",height=" +
+                theCanvas.height +
+                ",toolbar=0,resizable=0"
         );
     }
 }
