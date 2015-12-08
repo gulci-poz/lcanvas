@@ -20,10 +20,10 @@ function canvasSupport() {
 function canvasApp() {
     if(!canvasSupport) {
         return;
+    } else {
+        var theCanvas = document.getElementById("canvas");
+        var context = theCanvas.getContext("2d");
     }
-
-    var theCanvas = document.getElementById("canvasOne");
-    var context = theCanvas.getContext("2d");
 
     Debugger.log("Drawing Canvas");
 
@@ -31,5 +31,11 @@ function canvasApp() {
 
     function drawScreen() {
         // drawing canvas here
+        context.fillStyle = "#aaaaaa";
+        context.fillRect(0, 0, 200, 200);
+        context.fillStyle = "#000000";
+        context.font = "20px _sans";
+        context.textBaseline = "top";
+        context.fillText("Canvas!", 0, 0);
     }
 }
