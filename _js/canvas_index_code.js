@@ -41,6 +41,8 @@ function canvasApp() {
         context.fillStyle = "#000000";
         context.font = "20px Sans-Serif";
         // vertical alignment
+        // która linia czcionki będzie bazowa dla pionowego wyrównania
+        // ważne przy podawaniu współrzędnych dla lokowania tekstu na canvas
         context.textBaseline = "top";
         context.fillText("Hello World!", 195, 80);
 

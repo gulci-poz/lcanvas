@@ -1,7 +1,7 @@
 // addEventListener()
 // trzeci argument useCapture: true || false
 // jeśli true, to funkcja przechwyci zdarzenie przed propagacją niżej w drzewie obiektów DOM
-// używamy false
+// tutaj używamy false
 
 window.addEventListener("load", eventWindowLoaded, false);
 
