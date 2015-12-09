@@ -55,7 +55,7 @@ function canvasApp() {
 
 // kontekst
 // current state - stos stanów rysowania, który dotyczy globalnie całego canvas
-// macierze transformacji: skala, rotacja, transformacja, translacja
+// macierze transformacji: skala, rotacja, translacja
 // clipping region: tworzone metodą clip()
 // właściwości kontekstu: strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation, font, textAlign, textBaseline
 
