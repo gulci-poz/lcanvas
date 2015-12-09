@@ -2,6 +2,7 @@ context.fillStyle = "#000000";
 context.strokeStyle = "#ff00ff";
 context.lineWidth = 2;
 context.fillRect(15, 15, 40, 40);
+// stroke rozkłada się od środka krawędzi na obie strony (centralnie), rysując na krawędzi canvas możemy nie zobaczyć części stroke, trzeba rysować po odsunięciu sie nieco od krawędzi canvas
 context.strokeRect(5, 5, 60, 60);
 // czyści daną powierzchnię i czyni ją przeźroczystą (kolorem jest przeźroczysty czarny)
 context.clearRect(25, 25, 20, 20);
